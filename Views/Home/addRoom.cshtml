@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model List<WebApplication3.Models.category>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Hostel Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
@@ -35,10 +36,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -157,19 +154,12 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label" for="text-field">Category</label>
                                         <div class="col-md-10">
-                                            <input id="category" class="form-control" placeholder="Select category" type="text" list="cat" onkeypress="return isNumber(event)">
-                                            <datalist id="cat">
-                                                <option value="1"></option>
-                                                <option value="2"></option>
-                                                <option value="3"></option>
-                                                <option value="4"></option>
-                                                <option value="5"></option>
-                                                <option value="6"></option>
-                                                <option value="7"></option>
-                                                <option value="8"></option>
-                                                <option value="9"></option>
-                                                <option value="10"></option>
-                                            </datalist>
+                                            <select id="category" class="form-control" placeholder="Select category">
+                                                @foreach (var item in Model)
+                                                {
+                                                    <option value="@item.category_no">@item.category_no</option>
+                                                }
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -191,56 +181,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Room Cooler</td>
-                                                    <td>200</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>AC</td>
-                                                    <td>400</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Single Bed</td>
-                                                    <td>500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>2 Bed</td>
-                                                    <td>200</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Chiller</td>
-                                                    <td>2500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>6</td>
-                                                    <td>Blow Away</td>
-                                                    <td>1233</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>7</td>
-                                                    <td>Simple Room with Fan</td>
-                                                    <td>100</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>8</td>
-                                                    <td>5 Bed</td>
-                                                    <td>2000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>9</td>
-                                                    <td>6 AC</td>
-                                                    <td>8000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>10</td>
-                                                    <td>Luxury</td>
-                                                    <td>10000</td>
-                                                </tr>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>@item.category_no</td>
+                                                        <td>@item.category_type</td>
+                                                        <td>@item.charges</td>
+                                                    </tr>
+                                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -287,7 +235,7 @@
     <script src="~/Content/js/custom.js"></script>
     <script src="~/Content/js/forms.js"></script>
     <script src="~/Content/js/jquery.blockUI.js"></script>
-    <script >
+    <script>
         $("html, body").animate({ scrollTop: 0 }, "slow");
         function isNumber(evt) {
             evt = (evt) ? evt : window.event;
@@ -383,7 +331,9 @@
                 $(this).parent().removeClass("has-error");
             }
         });
-        $('#expandit').trigger('click');
+        $(document).ready(function () {
+            $('#expandit').trigger('click');
+        });
     </script>
 </body>
 </html>

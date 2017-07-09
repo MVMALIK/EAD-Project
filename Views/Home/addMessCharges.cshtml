@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Hostel Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
@@ -35,10 +35,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -229,7 +225,7 @@
                                             </p>
                                         </div>*@
                                         <div class="col-sm-6">
-                                            <div id="date" class="bfh-datepicker" data-format="y-m-d" data-date="today"></div>
+                                            <div id="dat" class="bfh-datepicker" data-format="y-m-d" data-date="today"></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -341,8 +337,8 @@
                             $("#FthName").val(serverData["FatherName"]).prop("disabled", true);
                             $("#roomNo").val(serverData["Room_id"]).prop("disabled", true);
                             $("#dues").val(serverData["dues"]).prop("disabled", true);
-                            $("#dat").datepicker("setDate", new Date());
-                            setDate("#dat");
+                            //$("#dat").datepicker("setDate", new Date());
+                            //setDate("#dat");
                             $.ajax({
                                 cache: false,
                                 type: "POST",
@@ -456,7 +452,17 @@
                 $("#addMessCharges").collapse('hide');
             });
             $("#messCharges").focusout(function () {
-                $("#totalCharges").val(parseInt($("#roomCharges").val()) + parseInt($("#messCharges").val()) + parseInt($("#dues").val()));
+                var a = parseInt($("#roomCharges").val());
+                var b = parseInt($("#messCharges").val());
+                var c = parseInt($("#dues").val());
+                if (isNaN(a)) {
+                    a = 0;
+                } else if (isNaN(b)) {
+                    b = 0;
+                } else if (isNaN(c)) {
+                    c = 0;
+                }
+                $("#totalCharges").val(parseInt(a) + parseInt(b) + parseInt(c));
             });
             $('#expandit').trigger('click');
         });

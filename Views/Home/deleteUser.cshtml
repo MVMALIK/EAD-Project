@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Hostel Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
@@ -35,10 +35,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -140,7 +136,7 @@
                 <div class="row" id="userIdInSearch">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="content-box-header">
-                            <div class="panel-title">Search Student</div>
+                            <div class="panel-title">Search User</div>
                         </div>
                         <div class="content-box-large box-with-header" id="searchFormId">
                             <form class="form-inline" role="form">
@@ -162,7 +158,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div class="content-box-large">
                             <div class="panel-heading">
-                                <div class="panel-title">Add New Student</div>
+                                <div class="panel-title">Delete User</div>
 
                                 <div class="panel-options">
                                     <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -307,6 +303,7 @@
     <script src="~/Content/online/bootstrap-editable.min.js"></script>
     <script src="~/Content/js/custom.js"></script>
     <script src="~/Content/js/forms.js"></script>
+    <script src="~/Content/js/jquery.blockUI.js"></script>
     <script>
         $("html, body").animate({ scrollTop: 0 }, "slow");
         function showMsg(class_name, msg1, msg2) {
@@ -337,6 +334,17 @@
             $("#searchUser").click(function () {
                 //var clientData = {
                 //};
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -366,8 +374,10 @@
                             $("#loginId").val(serverData["login_id"]);
                             $("#password").val(serverData["user_password"]);
                             $("#cPassword").val(serverData["user_password"]);
+                            $.unblockUI();
                         } else {
                             showMsg("alert-danger", "Failed", "No Such User Found");
+                            $.unblockUI();
                             $("#userData").collapse('hide');
                         }
                     },
@@ -377,6 +387,17 @@
                 });
             });
             $("#modalDelete").click(function () {
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -407,12 +428,15 @@
                             showMsg("alert-success", "Success", "User's Record Deleted Successfully");
                             $("#userIdInSearch :input").attr("disabled", false);
                             $("#userData").collapse('hide');
+                            $.unblockUI();
                         } else {
                             showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                            $.unblockUI();
                         }
                     },
                     error: function () {
-                        alert("Critical Error!. Failed to call the server.");
+                        showMsg("alert-danger", "Failed", " to Communicate with Server");
+                        $.unblockUI();
                     }
                 });
             });

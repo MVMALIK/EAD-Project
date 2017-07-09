@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Hostel Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
@@ -36,10 +36,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -380,7 +376,7 @@
                     },
                     error: function () {
                         $.unblockUI();
-                        alert("Critical Error!. Failed to call the server.");
+                        showMsg("alert-danger", "Failed", " to Call the Server");
                     }
                 });
             });
@@ -429,7 +425,7 @@
                     },
                     error: function () {
                         $.unblockUI();
-                        alert("Critical Error!. Failed to call the server.");
+                        showMsg("alert-danger", "Failed", " to Call the Server");
                     }
                 });
             }
@@ -483,7 +479,6 @@
                 });
             });
             $("#searchVisits").on("click", "[id^=delVisits_]", function () {
-                alert($(this).attr("id") + "\n" + $(this).attr("id").split("_").pop());
                 fullID = "#" + $(this).attr("id");
                 visID = $(this).attr("id").split("_").pop();
                 $("#modalDelete").click(function () {
@@ -516,7 +511,7 @@
                         },
                         error: function () {
                             $.unblockUI();
-                            alert("Critical Error!. Failed to call the server.");
+                            showMsg("alert-danger", "Failed", " to Call the Server");
                         }
                     });
                 });

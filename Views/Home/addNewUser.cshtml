@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Hostel Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
@@ -35,10 +35,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -186,7 +182,7 @@
                                     <div class="form-group">
                                         <label for="h-input" class="col-sm-2 control-label">HireDate</label>
                                         <div class="col-sm-10">
-                                            <input id="userHiredate" type="date" class="form-control " placeholder="HireDate">
+                                            <input id="userHiredate" type="text" class="form-control " placeholder="HireDate" required data-mask="99/99/9999" data-mask-placeholder=".">
                                             <p class="note">
                                                 Data format dd/mm/yyyy
                                             </p>
@@ -262,10 +258,22 @@
     <script src="~/Content/online/bootstrap-editable.min.js"></script>
     <script src="~/Content/js/custom.js"></script>
     <script src="~/Content/js/forms.js"></script>
+    <script src="~/Content/js/jquery.blockUI.js"></script>
     <script>
         $(document).ready(function () {
             $("html, body").animate({ scrollTop: 0 }, "slow");
             function displayID() {
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -287,8 +295,10 @@
                         //$('#datePicker').val(today);
                         $("#userId").val(serverData).prop("disabled", true); 
                         $("#userHiredate").val(today).prop("disabled", true);
+                        $.unblockUI();
                     },
                     error: function () {
+                        $.unblockUI();
                         showMsg("alert-danger", "Failed", " to get ID for New User");
                         //alert("Critical Error!. Failed to call the server.");
                     }
@@ -329,6 +339,17 @@
                 };
                 //alert($("#userId").val() + "\n" + $("#userName").val() + "\n" + $("#userCnic").val() + "\n" + $("#userEmail").val() + "\n" + $("#userHiredate").val() + "\n");
                 //alert($("#userMob").val() + "\n" + $("#loginId").val() + "\n" + $("#password").val() + "\n" + $("#cPassword").val() + "\n" + $("#userType").val());
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -365,13 +386,16 @@
                             $("textarea").each(function () {
                                 $(this).val('');
                             });
+                            $.unblockUI();
                             showMsg("alert-success", "Success", "New Student Added Successfully");
                             displayID();
                         } else {
+                            $.unblockUI();
                             showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
                         }
                     },
                     error: function () {
+                        $.unblockUI();
                         showMsg("alert-danger", "Failed", " to Communicate with Server hehehe");
                         //alert("Critical Error!. Failed to call the server.");
                     }

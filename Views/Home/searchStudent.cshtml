@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Hostel Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
@@ -35,10 +35,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">Search</button>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -320,6 +316,7 @@
     <script src="~/Content/online/bootstrap-editable.min.js"></script>
     <script src="~/Content/js/custom.js"></script>
     <script src="~/Content/js/forms.js"></script>
+    <script src="~/Content/js/jquery.blockUI.js"></script>
     <script >
         $(document).ready(function () {
             $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -344,8 +341,17 @@
                 $("html, body").animate({ scrollTop: 0 }, "slow");
             }
             $("#searchStudent").click(function () {
-                //var clientData = {
-                //};
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -364,13 +370,7 @@
                             $("#FthName").val(serverData["FatherName"]);
                             $('[name=gender][value=' + serverData["Gender"] + ']').prop('checked', true);
                             $("#cnic").val(serverData["CNIC_No"]);
-                            var temp = serverData["DateOfBirth"];
-                            var date = temp.split("/");
-                            var day = date[0];
-                            var month = date[1];
-                            var year = date[2];
-                            var today = year + "-" + month + "-" + day;
-                            $("#dob").val(today);
+                            $("#dob").val(serverData["DateOfBirth"]);
 
                             $("#mob").val(serverData["Phone"]);
                             $("#address").val(serverData["Address"]);
@@ -378,13 +378,16 @@
                             $("#province").val(serverData["Province"]);
                             $("#religion").val(serverData["Religion"]);
                             $("#studentId :input").attr("disabled", true);
+                            $.unblockUI();
                         } else {
                             showMsg("alert-danger","Failed","No Such Student Found");
                             $("#studentData").collapse('hide');
+                            $.unblockUI();
                         }
                     },
                     error: function () {
                         showMsg("alert-danger", "Failed", " to Communicate with Server");
+                        $.unblockUI();
                     }
                 });
             });
@@ -409,6 +412,17 @@
                     Religion: $.trim($("#religion").val()),
                     Id: $.trim($("#searchStudentById").val())
                 };
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -448,13 +462,15 @@
                             showMsg("alert-success", "Success", "Student's Record Update Successfully");
                             $("#studentId :input").attr("disabled", false);
                             $("#studentData").collapse('hide');
+                            $.unblockUI();
                         } else {
                             showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                            $.unblockUI();
                         }
                     },
                     error: function () {
                         showMsg("alert-danger", "Failed", " to Communicate with Server");
-                        //alert("Critical Error!. Failed to call the server.");
+                        $.unblockUI();
                     }
                 });
             });
