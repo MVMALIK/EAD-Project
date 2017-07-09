@@ -51,8 +51,7 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
                                     <ul class="dropdown-menu animated fadeInUp">
-                                        <li><a href="/Home/Profile">Profile</a></li>
-                                        <li><a href="/Home/Login">Logout</a></li>
+                                        <li><a href="/Home/Logout">Logout</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -83,7 +82,7 @@
                         </li>
                         <li class="submenu">
                             <a href="#">
-                                <i class="glyphicon glyphicon-list"></i> Room Management
+                                <i class="glyphicon glyphicon-list" id="expandit"></i> Room Management
                                 <span class="caret pull-right"></span>
                             </a>
                             <!-- Sub menu -->
@@ -91,7 +90,7 @@
                                 <li><a href="/Home/addRoom">Add New Room</a></li>
                                 <li><a href="/Home/searchRoom">Search Room</a></li>
                                 <li><a href="/Home/updateRoom">Update Room</a></li>
-                                <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                                <li class="current"><a href="/Home/roomAllotment">Room Allotment</a></li>
                                 <li><a href="/Home/addCategory">Add New Category</a></li>
                                 <li><a href="/Home/updateCategory">Update Category</a></li>
                             </ul>
@@ -104,6 +103,7 @@
                             <!-- Sub menu -->
                             <ul>
                                 <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                                <li><a href="/Home/terminateVisit">Terminate Visit</a></li>
                                 <li><a href="/Home/searchVisitor">Search Visitor</a></li>
                                 <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
                             </ul>
@@ -488,7 +488,7 @@
                     $(this).parent().removeClass("has-error");
                 }
             });
-
+            $('#expandit').trigger('click');
         });
     </script>
 </body>
