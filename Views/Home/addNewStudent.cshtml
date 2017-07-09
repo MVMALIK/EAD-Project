@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI -->
+    <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/online/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <link href="~/Content/css/forms.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="/Home/index">Hostel Management System</a></h1>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="navbar navbar-inverse" role="banner">
+                        <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                                    <ul class="dropdown-menu animated fadeInUp">
+                                        <li><a href="/Home/Profile">Profile</a></li>
+                                        <li><a href="/Home/Login">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar content-box" style="display: block;">
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li class="current"><a href="/Home/Index"> Dashboard</a></li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Student Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewStudent"><i class="glyphicon glyphicon-home"></i>Add New Student</a></li>
+                                <li><a href="/Home/searchStudent">Search Student</a></li>
+                                <li><a href="/Home/deleteStudent">Delete Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Room Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addRoom">Add New Room</a></li>
+                                <li><a href="/Home/searchRoom">Search Room</a></li>
+                                <li><a href="/Home/updateRoom">Update Room</a></li>
+                                <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                                <li><a href="/Home/addCategory">Add New Category</a></li>
+                                <li><a href="/Home/updateCategory">Update Category</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Visitor Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                                <li><a href="/Home/searchVisitor">Search Visitor</a></li>
+                                <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Charges Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addMessCharges">Add Charges</a></li>
+                                <li><a href="/Home/updateMessCharges">Update Charges</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> User Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewUser">Add New User</a></li>
+                                <li><a href="/Home/searchUser">Search User</a></li>
+                                <li><a href="/Home/deleteUser">Delete User</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="content-box-large" id="searchFormId">
+                            <div class="panel-heading">
+                                <div class="panel-title">Add New Student</div>
+
+                                <div class="panel-options">
+                                    <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                    <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form" method="post" action="">
+                                    <div class="form-group">
+                                        <label for="stdName" class="col-sm-2 control-label">Student Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="stdName" pattern="[A-Za-z]" placeholder="Student Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fthName" class="col-sm-2 control-label">Father Name</label>
+                                        <div class="col-sm-10">
+                                               <input type="text" class="form-control" id="FthName" pattern="[A-Za-z]" placeholder="Father Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">Gender</label>
+                                        <div class="col-sm-10">
+                                            <label class="radio radio-inline">
+                                                <input type="radio" name="gender" value="Male" checked="checked">
+                                                Male
+                                            </label>
+                                            <label class="radio radio-inline">
+                                                <input type="radio" name="gender" value="Female">
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">CNIC</label>
+                                        <div class="col-sm-10">
+                                            <input id="cnic" type="text" class="form-control mask-date" data-mask="99999-9999999-9" data-mask-placeholder="_" placeholder="CNIC" required>
+                                            @*<span class="input-group-addon"><i class="fa fa-calendar"></i></span>*@
+                                            <p class="note">
+                                                Data format *****-*******-*
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">D.O.B</label>
+                                        <div class="col-sm-10">
+                                            <input id="dob" type="date" class="form-control " placeholder="D.O.B" required>
+                                            @*<span class="input-group-addon"><i class="fa fa-calendar"></i></span>*@
+                                            <p class="note">
+                                                Data format **/**/****
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">Mobile</label>
+                                        <div class="col-sm-10">
+                                            <input id="mob" type="text" class="form-control mask-date" data-mask="+99-999-9999999" data-mask-placeholder="X" placeholder="Mobile" required>
+                                            @*<span class="input-group-addon"><i class="fa fa-calendar"></i></span>*@
+                                            <p class="note">
+                                                Data format +XX-XXX-XXXXXXX
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Address</label>
+                                        <div class="col-sm-10">
+                                            <textarea id="address" class="form-control" placeholder="Enter Address" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="text-field">City</label>
+                                        <div class="col-md-10">
+                                            <input id="city" class="form-control" placeholder="Select City" type="text" list="mycity" value="Lahore">
+                                            <datalist id="mycity">
+                                                <option value="Lahore"></option>
+                                                <option value="Gujranwala"></option>
+                                                <option value="Karachi"></option>
+                                                <option value="Islamabad"></option>
+                                                <option value="Faisalabad"></option>
+                                                <option value="Peshawar"></option>
+                                                <option value="Haidarabad"></option>
+                                                <option value="Queta"></option>
+                                                <option value="Kashmir"></option>
+                                                <option value="Gilgit"></option>
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="text-field">Province</label>
+                                        <div class="col-md-10">
+                                            <input id="province" class="form-control" placeholder="Select Province" type="text" list="myprovince" value="Punjab">
+                                            <datalist id="myprovince">
+                                                <option value="Punjab"></option>
+                                                <option value="Sindh"></option>
+                                                <option value="KPK"></option>
+                                                <option value="Balochistan"></option>
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="text-field">Religion</label>
+                                        <div class="col-md-10">
+                                            <input id="religion" class="form-control" placeholder="Select Religion" type="text" list="myreligion" value="Islam">
+                                            <datalist id="myreligion">
+                                                <option value="Islam"></option>
+                                                <option value="Christianity"></option>
+                                                <option value="Hinduism"></option>
+                                                <option value="Budhism"></option>
+                                                <option value="Jews"></option>
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            @*<button type="submit" class="btn btn-primary">Add</button>*@
+                                            <input type="button" id="btnnn" class="btn btn-lg btn-block btn-primary" value="Add Student" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/online/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/online/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+    <script src="~/Content/vendors/select/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendors/tags/js/bootstrap-tags.min.js"></script>
+    <script src="~/Content/vendors/mask/jquery.maskedinput.min.js"></script>
+    <script src="~/Content/vendors/moment/moment.min.js"></script>
+    <script src="~/Content/vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <link href="~/Content/vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+    <script src="~/Content/vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <link href="~/Content/online/bootstrap-editable.css" rel="stylesheet" />
+    <script src="~/Content/online/bootstrap-editable.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/forms.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            // Set up the click event on the button to make
+            // the ajax call to add the student.
+            function showMsg(class_name, msg1, msg2) {
+                if ($("#alertType").length) {
+                    setTimeout(function () { $("#alertType").remove(); }, 1000);
+                } else {
+                    var text = '    \
+                            <div id="alertType" class="alert ' + class_name + '" role="alert">  \
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>    \
+                                <strong>'+ msg1 + '</strong> ' + msg2 + ' \
+                            </div>  \
+                            ';
+                    var dom = $(text);
+                    //$("#searchFormId").append(dom).delay(4000).queue(function () { $("#alertType").remove(); });
+                    $("#searchFormId").prepend(dom);
+                    setTimeout(function () { $("#alertType").remove(); }, 3000);
+                }
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }
+            $("#btnnn").click(function () {
+
+                // collect the data to a Json object.
+                var clientData = {
+                    StudentName: $.trim($("#stdName").val()),
+                    FatherName: $.trim($("#FthName").val()),
+                    Gender: $.trim($('[name=gender]').val()),
+                    CNIC: $.trim($("#cnic").val()),
+                    DOB: $.trim($("#dob").val()),
+                    Mobile: $.trim($("#mob").val()),
+                    Address: $.trim($("#address").val()),
+                    City: $.trim($("#city").val()),
+                    Province: $.trim($("#province").val()),
+                    Religion: $.trim($("#religion").val())
+                };
+                //var valueArray = [];
+
+                //valueArray.push($.trim($("#stdName").val()));
+                //valueArray.push($.trim($("#FthName").val()));
+                //valueArray.push($.trim($('input[name=gender]:checked').val()));
+                //valueArray.push($.trim($("#cnic").val()));
+                //valueArray.push($.trim($("#dob").val()));
+                //valueArray.push($.trim($("#mob").val()));
+                //valueArray.push($.trim($("#address").val()));
+                //valueArray.push($.trim($("#city").val()));
+                //valueArray.push($.trim($("#province").val()));
+                //valueArray.push($.trim($("#religion").val()));
+                //var clientData = "Hello ";
+
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/addStd",
+                    data: { values: clientData },
+                    dataType: "json",
+                    success: function (serverData) {
+                        //alert(serverData);
+                        var flag = 0;
+                        for (var i = 0; i < serverData.length; i++) {
+                            if(serverData[i] != "empty"){
+                                $(serverData[i]).parent('div').addClass("has-error");
+                                flag = 1;
+                            }
+                        }
+                        if (flag == 0) {
+                            $("input").each(function () {
+                                switch (this.type) {
+                                    case 'password':
+                                    case 'text':
+                                    case 'textarea':
+                                    case 'file':
+                                    case 'select-one':
+                                    case 'select-multiple':
+                                    case 'date':
+                                    case 'number':
+                                    case 'tel':
+                                    case 'email':
+                                        $(this).val('');
+                                        break;
+                                }
+                            });
+                            $("textarea").each(function () {
+                                $(this).val('');
+                            });
+                            showMsg("alert-success", "Success", "New Student Added Successfully");
+                        } else {
+                            showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                        }
+                    },
+                    error: function () {
+                        showMsg("alert-danger", "Failed", " to Communicate with Server");
+                        //alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+
+            // Set up the change event to the textboxes, so when user
+            // makes changes, clear the error messages associated to the textbox.
+            $("input,textarea").keyup(function () {
+                if ($(this).parent().hasClass("has-error")) {
+                    $(this).parent().removeClass("has-error");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

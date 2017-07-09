@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI -->
+    <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+
+    <link href="~/Content/css/stats.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a href="/Home/Index">Bootstrap Admin Theme</a></h1>
+	              </div>
+	           </div>
+	           <div class="col-md-5">
+	              <div class="row">
+	                <div class="col-lg-12">
+	                  <div class="input-group form">
+	                       <input type="text" class="form-control" placeholder="Search...">
+	                       <span class="input-group-btn">
+	                         <button class="btn btn-primary" type="button">Search</button>
+	                       </span>
+	                  </div>
+	                </div>
+	              </div>
+	           </div>
+	           <div class="col-md-2">
+	              <div class="navbar navbar-inverse" role="banner">
+	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+	                    <ul class="nav navbar-nav">
+	                      <li class="dropdown">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+	                        <ul class="dropdown-menu animated fadeInUp">
+	                          <li><a href="/Home/Profile">Profile</a></li>
+	                          <li><a href="/Home/Login">Logout</a></li>
+	                        </ul>
+	                      </li>
+	                    </ul>
+	                  </nav>
+	              </div>
+	           </div>
+	        </div>
+	     </div>
+	</div>
+
+    <div class="page-content">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li><a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                    <li><a href="/Home/Calendar"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
+                    <li class="current"><a href="/Home/Stats"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
+                    <li><a href="/Home/Tables"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
+                    <li><a href="/Home/Buttons"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
+                    <li><a href="/Home/Editors"><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
+                    <li><a href="/Home/Forms"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
+                    <li class="submenu">
+                         <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Pages
+                            <span class="caret pull-right"></span>
+                         </a>
+                         <!-- Sub menu -->
+                         <ul>
+                            <li><a href="/Home/Login">Login</a></li>
+                            <li><a href="/Home/Signup">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Student Management
+                            <span class="caret pull-right"></span>
+                        </a>
+                        <!-- Sub menu -->
+                        <ul>
+                            <li><a href="/Home/addNewStudent">Add New Student</a></li>
+                            <li><a href="/Home/searchStudent">Search Student</a></li>
+                            <li><a href="/Home/deleteStudent">Delete Student</a></li>
+                            <li><a href="/Home/Signup">Update Student Record</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Room Management
+                            <span class="caret pull-right"></span>
+                        </a>
+                        <!-- Sub menu -->
+                        <ul>
+                            <li><a href="/Home/addRoom">Add New Room</a></li>
+                            <li><a href="/Home/searchRoom">Search Room</a></li>
+                            <li><a href="/Home/updateRoom">Update Room</a></li>
+                            <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                            <li><a href="/Home/Signup">Add New Category</a></li>
+                            <li><a href="/Home/updateCategory">Update Category</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Visitor Management
+                            <span class="caret pull-right"></span>
+                        </a>
+                        <!-- Sub menu -->
+                        <ul>
+                            <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                            <li><a href="/Home/searchVisitor">Search Visitor</a></li>
+                            <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Charges Management
+                            <span class="caret pull-right"></span>
+                        </a>
+                        <!-- Sub menu -->
+                        <ul>
+                            <li><a href="/Home/addMessCharges">Add Mess Charges</a></li>
+                            <li><a href="/Home/updateMessCharges">Update Mess Charges</a></li>
+                            <li><a href="/Home/addRoomCharges">Add Charges</a></li>
+                            <li><a href="/Home/updateRoomCharges">Update Dues</a></li>
+                        </ul>
+                    </li>
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> User Management
+                            <span class="caret pull-right"></span>
+                        </a>
+                        <!-- Sub menu -->
+                        <ul>
+                            <li><a href="/Home/addNewUser">Add New User</a></li>
+                            <li><a href="/Home/">Search User</a></li>
+                            <li><a href="/Home/">Delete User</a></li>
+                        </ul>
+                    </li>
+                </ul>
+             </div>
+		  </div>
+		  <div class="col-md-10">
+
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">Morris.js Stacked</div>
+					
+					<div class="panel-options">
+						<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+						<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+					</div>
+				</div>
+  				<div class="panel-body">
+  					<div id="hero-area" style="height: 230px;"></div>
+  				</div>
+  			</div>
+
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">Morris.js Monthly growth</div>
+					
+					<div class="panel-options">
+						<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+						<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+					</div>
+				</div>
+  				<div class="panel-body">
+  					<div id="hero-graph" style="height: 230px;"></div>
+  				</div>
+  			</div>
+
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">Morris.js Bar & Donut</div>
+					
+					<div class="panel-options">
+						<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+						<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+					</div>
+				</div>
+  				<div class="panel-body">
+  					<div class="row">
+  						<div class="col-md-6">
+  							<div id="hero-bar" style="height: 230px;"></div>
+  						</div>
+  						<div class="col-md-3">
+  							<div id="hero-donut" style="height: 230px;"></div>
+  						</div>
+  						<div class="col-md-3">
+  							<div id="hero-donut2" style="height: 230px;"></div>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="content-box-large">
+  				<div class="panel-heading">
+					<div class="panel-title">jQuery Knob</div>
+					
+					<div class="panel-options">
+						<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+						<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+					</div>
+				</div>
+  				<div class="panel-body">
+  					<div class="row">
+  						<div class="col-md-3">
+  							<input type="text" value="50" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#30a1ec" data-bgColor="#d4ecfd" data-width="150">
+  						</div>
+  						<div class="col-md-3">
+  							<input type="text" value="75" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#8ac368" data-bgColor="#c4e9aa" data-width="150">
+  						</div>
+  						<div class="col-md-3">
+  							<input type="text" value="35" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#5ba0a3" data-bgColor="#cef3f5" data-width="150">
+  						</div>
+  						<div class="col-md-3">
+  							<input type="text" value="85" class="knob second" data-thickness=".3" data-inputColor="#333" data-fgColor="#b85e80" data-bgColor="#f8d2e0" data-width="150">
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="row">
+  				<div class="col-md-6">
+  					<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title">Pie Chart</div>
+							
+							<div class="panel-options">
+								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+							</div>
+						</div>
+		  				<div class="panel-body">
+		  					<div id="piechart1" style="width:100%;height:200px"></div>
+		  				</div>
+		  			</div>
+  				</div>
+  				<div class="col-md-6">
+  					<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title">Pie Chart</div>
+							
+							<div class="panel-options">
+								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+							</div>
+						</div>
+		  				<div class="panel-body">
+		  					<div id="piechart2" style="width:100%;height:200px"></div>
+		  				</div>
+		  			</div>
+  				</div>
+  			</div>
+
+  			<div class="row">
+  				<div class="col-md-6">
+  					<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title">Bar Chart</div>
+							
+							<div class="panel-options">
+								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+							</div>
+						</div>
+		  				<div class="panel-body">
+		  					<div id="catchart" style="width:100%;height:300px"></div>
+		  				</div>
+		  			</div>
+  				</div>
+  				<div class="col-md-6">
+  					<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title">Multiple axes</div>
+							
+							<div class="panel-options">
+								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+							</div>
+						</div>
+		  				<div class="panel-body">
+		  					<div id="timechart" style="width:100%;height:300px"></div>
+		  				</div>
+		  			</div>
+  				</div>
+  			</div>
+
+
+		  </div>
+		</div>
+    </div>
+
+    <footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Copyright 2014 <a href='#'>Website</a>
+            </div>
+            
+         </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/online/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/online/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/vendors/morris/morris.css">
+
+
+    <script src="~/Content/vendors/jquery.knob.js"></script>
+    <script src="~/Content/vendors/raphael-min.js"></script>
+    <script src="~/Content/vendors/morris/morris.min.js"></script>
+
+    <script src="~/Content/vendors/flot/jquery.flot.js"></script>
+    <script src="~/Content/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="~/Content/vendors/flot/jquery.flot.pie.js"></script>
+    <script src="~/Content/vendors/flot/jquery.flot.time.js"></script>
+    <script src="~/Content/vendors/flot/jquery.flot.stack.js"></script>
+    <script src="~/Content/vendors/flot/jquery.flot.resize.js"></script>
+
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/stats.js"></script>
+  </body>
+</html>

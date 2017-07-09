@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI -->
+    <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/online/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <link href="~/Content/css/forms.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="/Home/index">Hostel Management System</a></h1>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="navbar navbar-inverse" role="banner">
+                        <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                                    <ul class="dropdown-menu animated fadeInUp">
+                                        <li><a href="/Home/Profile">Profile</a></li>
+                                        <li><a href="/Home/Login">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar content-box" style="display: block;">
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li class="current"><a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Student Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewStudent">Add New Student</a></li>
+                                <li><a href="/Home/searchStudent">Search Student</a></li>
+                                <li><a href="/Home/deleteStudent">Delete Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Room Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addRoom">Add New Room</a></li>
+                                <li><a href="/Home/searchRoom">Search Room</a></li>
+                                <li><a href="/Home/updateRoom">Update Room</a></li>
+                                <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                                <li><a href="/Home/addCategory">Add New Category</a></li>
+                                <li><a href="/Home/updateCategory">Update Category</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Visitor Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                                <li><a href="/Home/searchVisitor">Search Visitor</a></li>
+                                <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Charges Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addMessCharges">Add Charges</a></li>
+                                <li><a href="/Home/updateMessCharges">Update Charges</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> User Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewUser">Add New User</a></li>
+                                <li><a href="/Home/searchUser">Search User</a></li>
+                                <li><a href="/Home/deleteUser">Delete User</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br />
+                    <br /><br /><br />
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="row" id="userIdInSearch">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="content-box-header">
+                            <div class="panel-title">Search Student</div>
+                        </div>
+                        <div class="content-box-large box-with-header" id="searchFormId">
+                            <form class="form-inline" role="form">
+
+                                <fieldset>
+                                    <div class="form-group col-sm-8">
+                                        <input type="email" class="form-control" id="searchUserById" placeholder="Enter User Id">
+                                    </div>
+                                    <button id="searchUser" type="button" class="btn btn-primary btn-lg" data-toggle="collapse">
+                                        Search
+                                    </button>
+                                </fieldset>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse" id="userData">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="content-box-large">
+                            <div class="panel-heading">
+                                <div class="panel-title">Add New Student</div>
+
+                                <div class="panel-options">
+                                    <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                    <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form" method="post" action="">
+                                    <div class="form-group">
+                                        <label for="stdName" class="col-sm-2 control-label">User Id</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="userId" placeholder="Enter User ID">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fthName" class="col-sm-2 control-label">User Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="userName" placeholder="Enter User Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">CNIC</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="userCnic" class="form-control mask-date" data-mask="99999-9999999-9" data-mask-placeholder="_" placeholder="CNIC">
+                                            <p class="note">
+                                                Data format *****-*******-*
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">Mobile</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="userMob" class="form-control mask-date" data-mask="+99-999-9999999" data-mask-placeholder="X" placeholder="Mobile">
+                                            <p class="note">
+                                                Data format +XX-XXX-XXXXXXX
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">HireDate</label>
+                                        <div class="col-sm-10">
+                                            <input id="userHiredate" type="date" class="form-control " placeholder="HireDate">
+                                            <p class="note">
+                                                Data format dd/mm/yyyy
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stdName" class="col-sm-2 control-label">LoginId</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="loginId" placeholder="Enter User ID">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">Password Field</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="cPassword" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">User Type</label>
+                                        <div class="col-sm-10">
+                                            <input id="userType" class="form-control" placeholder="Select User Type" type="text" list="type">
+                                        </div>
+                                        <datalist id="type">
+                                            <option value="Admin"></option>
+                                            <option value="Standard User"></option>
+                                        </datalist>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button id="delete" type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#confirm-delete">Delete</button>
+                                            <button id="cancel" type="button" class="btn btn-lg btn-primary">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <p>You are about to delete User Record, this procedure is irreversible.</p>
+                                <p>Do you want to proceed?</p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="modalCancel" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                <button id="modalDelete" class="btn btn-danger btn-ok" data-dismiss="modal">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/online/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/online/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+    <script src="~/Content/vendors/select/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendors/tags/js/bootstrap-tags.min.js"></script>
+    <script src="~/Content/vendors/mask/jquery.maskedinput.min.js"></script>
+    <script src="~/Content/vendors/moment/moment.min.js"></script>
+    <script src="~/Content/vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <link href="~/Content/vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+    <script src="~/Content/vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <link href="~/Content/online/bootstrap-editable.css" rel="stylesheet" />
+    <script src="~/Content/online/bootstrap-editable.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/forms.js"></script>
+    <script>
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        function showMsg(class_name, msg1, msg2) {
+            if ($("#alertType").length) {
+                setTimeout(function () { $("#alertType").remove(); }, 1000);
+            } else {
+                var text = '    \
+                            <div id="alertType" class="alert ' + class_name + '" role="alert">  \
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>    \
+                                <strong>'+ msg1 + '</strong> ' + msg2 + ' \
+                            </div>  \
+                            ';
+                var dom = $(text);
+                //$("#searchFormId").append(dom).delay(4000).queue(function () { $("#alertType").remove(); });
+                $("#searchFormId").append(dom);
+                setTimeout(function () { $("#alertType").remove(); }, 3000);
+            }
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        }
+        $('#confirm-delete').on('show.bs.modal', function (e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        });
+        $(document).ready(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            $('#userData').collapse({
+                toggle: false
+            });
+            $("#searchUser").click(function () {
+                //var clientData = {
+                //};
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/searchUser",
+                    data: { id: $.trim($("#searchUserById").val()) },
+                    dataType: "json",
+                    success: function (serverData) {
+                        if (serverData) {
+                            $("#userData").collapse('show');
+                            $("#userData :input").attr("disabled", true);
+                            $("#delete").attr("disabled", false);
+                            $("#cancel").attr("disabled", false);
+
+                            $("#userIdInSearch :input").attr("disabled", true);
+
+                            $("#userId").val(serverData["User_id"]);
+                            $("#userName").val(serverData["User_name"]);
+                            $("#userCnic").val(serverData["CNIC"]);
+                            $("#userEmail").val(serverData["email"]);
+                            $("#userHiredate").val(serverData["hiredate"]);
+                            if (serverData["isAdmin"] == 1) {
+                                $("#userType").val("Admin");
+                            } else {
+                                $("#userType").val("Standard User");
+                            }                            
+                            $("#userMob").val(serverData["Phone"]);
+                            $("#loginId").val(serverData["login_id"]);
+                            $("#password").val(serverData["user_password"]);
+                            $("#cPassword").val(serverData["user_password"]);
+                        } else {
+                            showMsg("alert-danger", "Failed", "No Such User Found");
+                            $("#userData").collapse('hide');
+                        }
+                    },
+                    error: function () {
+                        alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+            $("#modalDelete").click(function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/deleteUser",
+                    data: { id: $.trim($("#searchUserById").val()) },
+                    dataType: "json",
+                    success: function (serverData) {
+                        if (serverData) {
+                            $("input").each(function () {
+                                switch (this.type) {
+                                    case 'password':
+                                    case 'text':
+                                    case 'textarea':
+                                    case 'file':
+                                    case 'select-one':
+                                    case 'select-multiple':
+                                    case 'date':
+                                    case 'number':
+                                    case 'tel':
+                                    case 'email':
+                                        $(this).val('');
+                                        break;
+                                }
+                            });
+                            $("textarea").each(function () {
+                                $(this).val('');
+                            });
+                            showMsg("alert-success", "Success", "User's Record Deleted Successfully");
+                            $("#userIdInSearch :input").attr("disabled", false);
+                            $("#userData").collapse('hide');
+                        } else {
+                            showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                        }
+                    },
+                    error: function () {
+                        alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+            $("#cancel").click(function () {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                $("#userIdInSearch :input").attr("disabled", false);
+                $("#userData").collapse('hide');
+            });
+        });
+    </script>
+</body>
+</html>

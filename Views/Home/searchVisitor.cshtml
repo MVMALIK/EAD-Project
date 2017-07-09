@@ -1,0 +1,618 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI -->
+    <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/online/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <link href="~/Content/css/forms.css" rel="stylesheet">
+    <link href="~/Content/css/customTable.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="/Home/index">Hostel Management System</a></h1>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="navbar navbar-inverse" role="banner">
+                        <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                                    <ul class="dropdown-menu animated fadeInUp">
+                                        <li><a href="/Home/Profile">Profile</a></li>
+                                        <li><a href="/Home/Login">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar content-box" style="display: block;">
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li class="current"><a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Student Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewStudent">Add New Student</a></li>
+                                <li><a href="/Home/searchStudent">Search Student</a></li>
+                                <li><a href="/Home/deleteStudent">Delete Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Room Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addRoom">Add New Room</a></li>
+                                <li><a href="/Home/searchRoom">Search Room</a></li>
+                                <li><a href="/Home/updateRoom">Update Room</a></li>
+                                <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                                <li><a href="/Home/addCategory">Add New Category</a></li>
+                                <li><a href="/Home/updateCategory">Update Category</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Visitor Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                                <li><a href="/Home/searchVisitor">Search Visitor</a></li>
+                                <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Charges Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addMessCharges">Add Charges</a></li>
+                                <li><a href="/Home/updateMessCharges">Update Charges</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> User Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewUser">Add New User</a></li>
+                                <li><a href="/Home/searchUser">Search User</a></li>
+                                <li><a href="/Home/deleteUser">Delete User</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br />
+                    <br /><br /><br />
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="row" id="visitorIdInSearch">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="content-box-header">
+                            <div class="panel-title">Search Visitor</div>
+                        </div>
+                        <div class="content-box-large box-with-header" id="searchFormId">
+                            <form class="form-inline" role="form">
+
+                                <fieldset>
+                                    <div class="form-group col-sm-8">
+                                        <input id="searchVisitorById" type="text" class="form-control mask-date" data-mask="99999-9999999-9" data-mask-placeholder="_" placeholder="Enter Visitor CNIC">
+                                        <p class="note">
+                                            Data format *****-*******-*
+                                        </p>
+                                    </div>
+                                    <button id="searchVisitor" type="button" class="btn btn-primary btn-lg" data-toggle="collapse">
+                                        Search
+                                    </button>
+                                    <button id="cancel" type="button" class="btn btn-primary btn-lg">
+                                        Cancel
+                                    </button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse" id="visitsTable">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="content-box-large" id="searchVisits">
+                            <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <p>You are about to delete Visit Record, this procedure is irreversible.</p>
+                                            <p>Do you want to proceed?</p>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button id="modalCancel" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                            <button id="modalDelete" class="btn btn-danger btn-ok" data-dismiss="modal">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse" id="visitsData">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="content-box-large" id="editVisits">
+                            <div class="panel-body" id="panelBody">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label id="hiddenLabelId" hidden></label>
+                                        <label for="h-input" class="col-sm-2 control-label">CNIC</label>
+                                        <div class="col-sm-10">
+                                            <input id="visitorCnic" type="text" class="form-control mask-date" data-mask="99999-9999999-9" data-mask-placeholder="_" placeholder="CNIC">
+                                            <p class="note">
+                                                Data format *****-*******-*
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fthName" class="col-sm-2 control-label">Visitor Name</label>
+                                        <div class="col-sm-10">
+                                            <input id="visitorName" type="text" class="form-control" placeholder="Enter Visitor Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">Mobile</label>
+                                        <div class="col-sm-10">
+                                            <input id="visitorMob" type="text" class="form-control mask-date" data-mask="+99-999-9999999" data-mask-placeholder="X" placeholder="Mobile">
+                                            <p class="note">
+                                                Data format +XX-XXX-XXXXXXX
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">Entry Time</label>
+                                        <div class="col-sm-10">
+                                            <input id="date" type="text" class="form-control" placeholder="Date of Visit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="h-input" class="col-sm-2 control-label">Exit Time</label>
+                                        <div class="col-sm-10">
+                                            <input id="dateExit" type="text" class="form-control" placeholder="Date of Visit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fthName" class="col-sm-2 control-label">Student Id</label>
+                                        <div class="col-sm-10">
+                                            <input id="studentId" type="text" class="form-control" placeholder="Enter Student Roll No">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fthName" class="col-sm-2 control-label">Relation</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="relation" placeholder="Enter Relation with Student">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button id="update" type="button" class="btn btn-lg btn-primary">Update Record</button>
+                                            <button id="cancelInEdit" type="button" class="btn btn-lg btn-primary">Go Back</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/online/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/online/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+    <script src="~/Content/vendors/select/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendors/tags/js/bootstrap-tags.min.js"></script>
+    <script src="~/Content/vendors/mask/jquery.maskedinput.min.js"></script>
+    <script src="~/Content/vendors/moment/moment.min.js"></script>
+    <script src="~/Content/vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <link href="~/Content/vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+    <script src="~/Content/vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <link href="~/Content/online/bootstrap-editable.css" rel="stylesheet" />
+    <script src="~/Content/online/bootstrap-editable.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/forms.js"></script>
+    <script src="~/Content/js/jquery.blockUI.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            $('#visitsTable,#visitsData').collapse({
+                toggle: false
+            });
+            function showMsg(class_name, msg1, msg2) {
+                if ($("#alertType").length) {
+                    setTimeout(function () { $("#alertType").remove(); }, 1000);
+                } else {
+                    var text = '    \
+                            <div id="alertType" class="alert ' + class_name + '" role="alert">  \
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>    \
+                                <strong>'+ msg1 + '</strong> ' + msg2 + ' \
+                            </div>  \
+                            ';
+                    var dom = $(text);
+                    $("#searchFormId").append(dom);
+                    setTimeout(function () { $("#alertType").remove(); }, 3000);
+                }
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }
+            $("#searchVisitor").click(function () {
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/searchForVisitor",
+                    data: { id: $.trim($("#searchVisitorById").val()) },
+                    dataType: "json",
+                    success: function (serverData) {
+                        if (serverData) {
+                            $("#visitorIdInSearch :input").attr("disabled", true);
+                            $("#cancel").attr("disabled", false);
+
+                            var cont = '<div class="parentDiv" id="parentDiv">\
+                                        <div class="panel-heading">\
+                                            <div class="panel-title"><h1 class="myh1">Active Visits</h1></div>\
+							                <div class="panel-options">\
+								                <a id="refreshTable" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>\
+							                </div>\
+				                        </div>\
+                                <div class="panel-body">\
+                                    <div class="tbl-header">\
+                                        <table cellpadding="0" cellspacing="0" border="0">\
+                                            <thead>\
+                                                <tr>\
+                                                    <th></th>\
+                                                    <th></th>\
+                                                    <th>Visitor Name</th>\
+                                                    <th>Student Name</th>\
+                                                    <th>Relation</th>\
+                                                    <th>Visitor CNIC</th>\
+                                                    <th>Visitor Mobile</th>\
+                                                    <th>Entry Time</th>\
+                                                    <th>Exit Time</th>\
+                                                </tr>\
+                                            </thead>\
+                                        </table>\
+                                    </div>\
+                                    <div class="tbl-content">\
+                                        <table cellpadding="0" cellspacing="0" border="0">\
+                                            <tbody id="tableBody">';
+                            
+                            cont += '</tbody>\
+                                                </table>\
+                                            </div>\
+                                        </div>\
+                                    </div>';
+                            var dom = $(cont);
+                            $("#searchVisits").append(dom);
+                            $.unblockUI();
+                            nestedFunction();
+                            $("#visitsTable").collapse('show');
+                        } else {
+                            $.unblockUI();
+                            showMsg("alert-danger", "Failed", "No Such User Found");
+                            $("#visitsTable").collapse('hide');
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                        alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+            function nestedFunction() {
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/searchForVisitor",
+                    data: { id: $.trim($("#searchVisitorById").val()) },
+                    dataType: "json",
+                    success: function (serverData) {
+                        var markup;
+                        if (serverData) {
+                            for (var i = 0; i < serverData.length ; i++) {
+                                markup += '\
+                                <tr>\
+                                    <td><button data-toggle="collapse" id="editVisits_' + serverData[i]["VisitsId"] + '" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-pencil"></i> Edit</button></td>\
+                                    <td><button data-toggle="modal" data-target="#confirm-delete" id="delVisits_' + serverData[i]["VisitsId"] + '" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>\
+                                    <td>' + serverData[i]["VisitorName"] + '</td>\
+                                    <td id="std_' + serverData[i]["StudentId"] + '">' + serverData[i]["StudentName"] + '</td>\
+                                    <td>' + serverData[i]["Relation"] + '</td>\
+                                    <td>' + serverData[i]["VisitorCnic"] + '</td>\
+                                    <td>' + serverData[i]["VisitorMob"] + '</td>\
+                                    <td>' + serverData[i]["EntryTime"] + '</td>\
+                                    <td>' + serverData[i]["ExitTime"] + '</td>\
+                                </tr>';
+                            }
+                            $("#tableBody").empty();
+                            $("#tableBody").append(markup);
+                            $.unblockUI();
+                        } else {
+                            $.unblockUI();
+                            showMsg("alert-danger", "Failed", "All Visitors have exited");
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                        alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            }
+            var fullID;
+            var visID;
+            $("#searchVisits").on("click", "#refreshTable", function () {
+                nestedFunction();
+            });
+            $("#searchVisits").on("click", "[id^=editVisits_]", function () {
+                $("#visitsTable").collapse('hide');
+                $("#visitsData").collapse('show');
+                var $row = $(this).closest("tr"),       // Finds the closest row <tr> 
+                $tds = $row.find("td");             // Finds all children <td> elements
+                var temp = 0;
+                var myArr = $tds.map(function () {
+                    if (temp == 3) {
+                        temp++;
+                        return $(this).attr("id").split("_").pop();
+                    }
+                    temp++;
+                    return $(this).text();
+                });
+                $("#hiddenLabelId").val($(this).attr("id").split("_").pop()).prop("disabled",true);
+                $("#visitorName").val(myArr[2]).prop("disabled", true);
+                //$(this).closest("tr")..attr("id").split("_").pop()
+                $("#studentId").val(myArr[3]);
+                $("#relation").val(myArr[4]);
+                $("#visitorCnic").val(myArr[5]).prop("disabled", true);
+                $("#visitorMob").val(myArr[6]).prop("disabled", true);
+                $("#date").val(myArr[7]).prop("disabled", true);
+                $("#dateExit").val(myArr[8]).prop("disabled",true);
+            });
+            $("#cancelInEdit").click(function (){
+                $("#visitsTable").collapse('show');
+                $("#visitsData").collapse('hide');
+                $("visitsData input").each(function () {
+                    switch (this.type) {
+                        case 'password':
+                        case 'text':
+                        case 'textarea':
+                        case 'file':
+                        case 'select-one':
+                        case 'select-multiple':
+                        case 'date':
+                        case 'number':
+                        case 'tel':
+                        case 'email':
+                            $(this).val('');
+                            break;
+                    }
+                });
+            });
+            $("#searchVisits").on("click", "[id^=delVisits_]", function () {
+                alert($(this).attr("id") + "\n" + $(this).attr("id").split("_").pop());
+                fullID = "#" + $(this).attr("id");
+                visID = $(this).attr("id").split("_").pop();
+                $("#modalDelete").click(function () {
+                    $.blockUI({
+                        css: {
+                            border: 'none',
+                            padding: '15px',
+                            backgroundColor: '#000',
+                            '-webkit-border-radius': '10px',
+                            '-moz-border-radius': '10px',
+                            opacity: .5,
+                            color: '#fff'
+                        }
+                    });
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "/Home/deleteVisit",
+                        data: { id: visID },
+                        dataType: "json",
+                        success: function (serverData) {
+                            if (serverData) {
+                                $.unblockUI();
+                                $(fullID).parent().parent().remove();
+                                showMsg("alert-success", "Success", "Visit's Record Deleted Successfully");
+                            } else {
+                                $.unblockUI();
+                                showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                            }
+                        },
+                        error: function () {
+                            $.unblockUI();
+                            alert("Critical Error!. Failed to call the server.");
+                        }
+                    });
+                });
+            });
+            $("#cancel").click(function () {
+                $("#visitorIdInSearch :input").attr("disabled", false);
+                $("#visitsTable").collapse('hide');
+                $("#visitsData").collapse('hide');
+                if ($("#parentDiv").length) {
+                    $("#parentDiv").remove();
+                }
+            });
+            $("#update").click(function () {
+                var clientData = {
+                    visitorName: $.trim($("#visitorName").val()),
+                    visitorCnic: $.trim($("#visitorCnic").val()),
+                    relation: $.trim($("#relation").val()),
+                    visitorMob: $.trim($("#visitorMob").val()),
+                    studentId: $.trim($("#studentId").val()),
+                    date: $.trim($("#date").val()),
+                    new_or_old: $("#hiddenLabelId").val()
+                };
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/updateVisit",
+                    data: { values: clientData },
+                    //callback: myfunction(),
+                    dataType: "json",
+                    success: function (serverData) {
+                        //alert(serverData);
+                        var flag = 0;
+                        for (var i = 0; i < serverData.length; i++) {
+                            if (serverData[i] != "empty") {
+                                $(serverData[i]).parent('div').addClass("has-error");
+                                flag = 1;
+                            }
+                        }
+                        if (flag == 0) {
+                            $("#visitsData input").each(function () {
+                                switch (this.type) {
+                                    case 'password':
+                                    case 'text':
+                                    case 'textarea':
+                                    case 'file':
+                                    case 'select-one':
+                                    case 'select-multiple':
+                                    case 'date':
+                                    case 'number':
+                                    case 'tel':
+                                    case 'email':
+                                        $(this).val('');
+                                        break;
+                                }
+                            });
+                            $.unblockUI();
+                            showMsg("alert-success", "Success", "Visit's Record Update Successfully");
+                            $("#visitsData").collapse('hide');
+                            $("#visitsTable").collapse('show');
+                        } else {
+                            $.unblockUI();
+                            showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                        showMsg("alert-danger", "Failed", " to Communicate with Server");
+                        //alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+            $("input,textarea").keyup(function () {
+                if ($(this).parent().hasClass("has-error")) {
+                    $(this).parent().removeClass("has-error");
+                }
+            });
+        });
+        $('#confirm-delete').on('show.bs.modal', function (e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        });
+        // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+        $(window).on("load resize ", function () {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({ 'padding-right': scrollWidth });
+        }).resize();
+    </script>
+</body>
+</html>

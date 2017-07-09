@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI -->
+    <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/online/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <link href="~/Content/css/forms.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="/Home/index">Hostel Management System</a></h1>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="navbar navbar-inverse" role="banner">
+                        <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                                    <ul class="dropdown-menu animated fadeInUp">
+                                        <li><a href="/Home/Profile">Profile</a></li>
+                                        <li><a href="/Home/Login">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar content-box" style="display: block;">
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li class="current"><a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Student Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewStudent">Add New Student</a></li>
+                                <li><a href="/Home/searchStudent">Search Student</a></li>
+                                <li><a href="/Home/deleteStudent">Delete Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Room Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addRoom">Add New Room</a></li>
+                                <li><a href="/Home/searchRoom">Search Room</a></li>
+                                <li><a href="/Home/updateRoom">Update Room</a></li>
+                                <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                                <li><a href="/Home/addCategory">Add New Category</a></li>
+                                <li><a href="/Home/updateCategory">Update Category</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Visitor Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                                <li><a href="/Home/searchVisitor">Search Visitor</a></li>
+                                <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Charges Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addMessCharges">Add Charges</a></li>
+                                <li><a href="/Home/updateMessCharges">Update Charges</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> User Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewUser">Add New User</a></li>
+                                <li><a href="/Home/searchUser">Search User</a></li>
+                                <li><a href="/Home/deleteUser">Delete User</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br />
+                    <br /><br /><br />
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div class="row" id="catId">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="content-box-header">
+                            <div class="panel-title">Search Category</div>
+                        </div>
+                        <div class="content-box-large box-with-header" id="idForMsg">
+                            <form class="form-inline" role="form">
+
+                                <fieldset>
+                                    <div class="form-group col-sm-8">
+                                        <input type="email" class="form-control" id="searchCategoryById" placeholder="Enter Category No">
+                                    </div>
+                                    <button id="searchCategory" type="button" class="btn btn-primary btn-lg">
+                                        Search
+                                    </button>
+                                </fieldset>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse" id="updateCategory">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="content-box-large">
+                            <div class="panel-heading">
+                                <div class="panel-title">Update Category</div>
+
+                                <div class="panel-options">
+                                    <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                    <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="stdName" class="col-sm-2 control-label">Category Number</label>
+                                        <div class="col-sm-10">
+                                            <input id="categoryNo" type="text" class="form-control" placeholder="Enter Room No">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="text-field">Category Type</label>
+                                        <div class="col-md-10">
+                                            <input id="catType" class="form-control" placeholder="Select Category Type" type="text" list="cat">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stdName" class="col-sm-2 control-label">Charges</label>
+                                        <div class="col-sm-10">
+                                            <input id="charges" type="text" class="form-control" placeholder="Enter Charges" onkeypress="return isNumber(event)">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-10">
+                                            <button id="edit" type="button" class="btn btn-lg btn-primary">Edit</button>
+                                            <button id="update" type="button" class="btn btn-lg btn-primary">Update Room</button>
+                                            <button id="cancel" type="button" class="btn btn-lg btn-primary">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/online/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/online/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+    <script src="~/Content/vendors/select/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendors/tags/js/bootstrap-tags.min.js"></script>
+    <script src="~/Content/vendors/mask/jquery.maskedinput.min.js"></script>
+    <script src="~/Content/vendors/moment/moment.min.js"></script>
+    <script src="~/Content/vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <link href="~/Content/vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+    <script src="~/Content/vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <link href="~/Content/online/bootstrap-editable.css" rel="stylesheet" />
+    <script src="~/Content/online/bootstrap-editable.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/forms.js"></script>
+    <script src="~/Content/js/jquery.blockUI.js"></script>
+    <script>
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        $(document).ready(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            
+            function showMsg(class_name, msg1, msg2) {
+                if ($("#alertType").length) {
+                    setTimeout(function () { $("#alertType").remove(); }, 1000);
+                } else {
+                    var text = '    \
+                            <div id="alertType" class="alert ' + class_name + '" role="alert">  \
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>    \
+                                <strong>'+ msg1 + '</strong> ' + msg2 + ' \
+                            </div>  \
+                            ';
+                    var dom = $(text);
+                    //$("#searchFormId").append(dom).delay(4000).queue(function () { $("#alertType").remove(); });
+                    $("#idForMsg").append(dom);
+                    setTimeout(function () { $("#alertType").remove(); }, 3000);
+                }
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }
+            $("#edit").click(function () {
+                $("#updateCategory :input").attr("disabled", false);
+            });
+            $("#cancel").click(function () {
+                $("#catId :input").attr("disabled", false);
+                $("#updateCategory").collapse('hide');
+            });
+            $("#update").click(function () {
+
+                var clientData = {
+                    categoryNo: $.trim($("#categoryNo").val()),
+                    catType: $.trim($("#catType").val()),
+                    charges: $.trim($("#charges").val())
+                };
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/updateNewCategory",
+                    data: { values: clientData },
+                    dataType: "json",
+                    success: function (serverData) {
+                        var flag = 0;
+                        for (var i = 0; i < serverData.length; i++) {
+                            if (serverData[i] != "empty") {
+                                $(serverData[i]).parent('div').addClass("has-error");
+                                flag = 1;
+                            }
+                        }
+                        if (flag == 0) {
+                            $("input").each(function () {
+                                switch (this.type) {
+                                    case 'password':
+                                    case 'text':
+                                    case 'textarea':
+                                    case 'file':
+                                    case 'select-one':
+                                    case 'select-multiple':
+                                    case 'date':
+                                    case 'number':
+                                    case 'tel':
+                                    case 'email':
+                                        $(this).val('');
+                                        break;
+                                }
+                            });
+                            $.unblockUI();
+                            showMsg("alert-success", "Success", "Room Updated Successfully");
+                            $("#catId :input").attr("disabled", false);
+                            $("#updateCategory").collapse('hide');
+                        } else {
+                            $.unblockUI();
+                            showMsg("alert-danger", "Error", "Please Correct Errors and then Continue");
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                        showMsg("alert-danger", "Failed", " to Communicate with Server hehehe");
+                        //alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+            $("#searchCategory").click(function () {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/getCategoryForUpdate",
+                    data: { id: $.trim($("#searchCategoryById").val()) },
+                    dataType: "json",
+                    success: function (serverData) {
+                        var flag = 0;
+                        if (serverData) {
+                            $("#categoryNo").val(serverData["category_no"]).prop("disabled", true);
+                            $("#catType").val(serverData["category_type"]).prop("disabled", true);
+                            $("#charges").val(serverData["charges"]).prop("disabled", true);
+
+                            $("#searchCategoryById").prop("disabled", true);
+                            $("#searchCategory").prop("disabled", true);
+                            $("#updateCategory").collapse('show');
+                            $.unblockUI();
+                        } else {
+                            console.log("found errror");
+                            $.unblockUI();
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                    }
+                });
+            });
+            $("input,textarea").keyup(function () {
+                if ($(this).parent().hasClass("has-error")) {
+                    $(this).parent().removeClass("has-error");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

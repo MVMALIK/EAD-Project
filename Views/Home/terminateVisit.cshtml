@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Admin Theme v3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery UI -->
+    <link href="~/Content/online/jquery-ui.css" rel="stylesheet" media="screen">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="~/Content/css/styles.css" rel="stylesheet">
+    <link href="~/Content/online/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+    <link href="~/Content/css/forms.css" rel="stylesheet">
+    <link href="~/Content/css/customTable.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="/Home/index">Hostel Management System</a></h1>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="navbar navbar-inverse" role="banner">
+                        <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                                    <ul class="dropdown-menu animated fadeInUp">
+                                        <li><a href="/Home/Profile">Profile</a></li>
+                                        <li><a href="/Home/Login">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar content-box" style="display: block;">
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li class="current"><a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Student Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewStudent">Add New Student</a></li>
+                                <li><a href="/Home/searchStudent">Search Student</a></li>
+                                <li><a href="/Home/deleteStudent">Delete Student</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Room Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addRoom">Add New Room</a></li>
+                                <li><a href="/Home/searchRoom">Search Room</a></li>
+                                <li><a href="/Home/updateRoom">Update Room</a></li>
+                                <li><a href="/Home/roomAllotment">Room Allotment</a></li>
+                                <li><a href="/Home/addCategory">Add New Category</a></li>
+                                <li><a href="/Home/updateCategory">Update Category</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Visitor Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewVisitor">Add New Visitor</a></li>
+                                <li><a href="/Home/searchVisitor">Search Visitor</a></li>
+                                <li><a href="/Home/updateVisitor">Update Visitor Record</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> Charges Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addMessCharges">Add Charges</a></li>
+                                <li><a href="/Home/updateMessCharges">Update Charges</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-list"></i> User Management
+                                <span class="caret pull-right"></span>
+                            </a>
+                            <!-- Sub menu -->
+                            <ul>
+                                <li><a href="/Home/addNewUser">Add New User</a></li>
+                                <li><a href="/Home/searchUser">Search User</a></li>
+                                <li><a href="/Home/deleteUser">Delete User</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-10" id="mainDiv">
+                <div class="row" id="visitsTable">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="content-box-large" id="searchVisits">
+                            <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h2 class="modal-title" id="myModalLabel" style="color: forestgreen">Time Marked</h2>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <h4>Exit time for this Visitor is Marked Successfully!!.</h4>
+                                        </div>
+
+                                        @*<div class="modal-footer">
+                                                <button id="modalCancel" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                                <button id="modalDelete" class="btn btn-danger btn-ok" data-dismiss="modal">Delete</button>
+                                            </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/online/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Content/online/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+    <script src="~/Content/vendors/select/bootstrap-select.min.js"></script>
+    <script src="~/Content/vendors/tags/js/bootstrap-tags.min.js"></script>
+    <script src="~/Content/vendors/mask/jquery.maskedinput.min.js"></script>
+    <script src="~/Content/vendors/moment/moment.min.js"></script>
+    <script src="~/Content/vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- bootstrap-datetimepicker -->
+    <link href="~/Content/vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+    <script src="~/Content/vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <link href="~/Content/online/bootstrap-editable.css" rel="stylesheet" />
+    <script src="~/Content/online/bootstrap-editable.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/forms.js"></script>
+    <link href="~/Content/vendors/datatables/dataTables.bootstrap.css" rel="stylesheet" media="screen">
+    <script src="~/Content/vendors/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/js/tables.js"></script>
+    <script src="~/Content/js/jquery.blockUI.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            //$('#visitsTable,#visitsData').collapse({
+            //    toggle: false
+            //});
+            function showMsg(class_name, msg1, msg2) {
+                if ($("#alertType").length) {
+                    setTimeout(function () { $("#alertType").remove(); }, 1000);
+                } else {
+                    var text = '    \
+                            <div id="alertType" class="alert ' + class_name + '" role="alert">  \
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>    \
+                                <strong>'+ msg1 + '</strong> ' + msg2 + ' \
+                            </div>  \
+                            ';
+                    var dom = $(text);
+                    $("#mainDiv").append(dom);
+                    setTimeout(function () { $("#alertType").remove(); }, 3000);
+                }
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }
+            function displayTable() {
+                var cont = '<div class="parentDiv" id="parentDiv">\
+                            <div class="panel-heading">\
+                                <div class="panel-title"><h1 class="myh1">Active Visits</h1></div>\
+							    <div class="panel-options">\
+								    <a id="refreshTable" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>\
+							    </div>\
+				            </div>\
+                        <div class="panel-body">\
+                            <div class="tbl-header">\
+                                <table cellpadding="0" cellspacing="0" border="0">\
+                                    <thead>\
+                                        <tr>\
+                                            <th></th>\
+                                            <th>Visitor Name</th>\
+                                            <th>Student Name</th>\
+                                            <th>Relation</th>\
+                                            <th>Visitor CNIC</th>\
+                                            <th>Visitor Mobile</th>\
+                                        </tr>\
+                                    </thead>\
+                                </table>\
+                            </div>\
+                            <div class="tbl-content">\
+                                <table cellpadding="0" cellspacing="0" border="0">\
+                                    <tbody id="tableBody">';
+                            cont += '</tbody>\
+                                </table>\
+                            </div>\
+                        </div>\
+                    </div>';
+                var dom = $(cont);
+                $("#searchVisits").append(dom);
+                nestedFunction();
+            }
+            function nestedFunction() {
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/exitTimeData",
+                    dataType: "json",
+                    success: function (serverData) {
+                        var markup;
+                        if (serverData) {
+                            for (var i = 0; i < serverData.length ; i++) {
+                                markup += '\
+                                <tr>\
+                                    <td><button id="exitTime_' + serverData[i]["VisitsId"] + '" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i> Mark Exit Time</button></td>\
+                                    <td>' + serverData[i]["VisitorName"] + '</td>\
+                                    <td id="std_' + serverData[i]["StudentId"] + '">' + serverData[i]["StudentName"] + '</td>\
+                                    <td>' + serverData[i]["Relation"] + '</td>\
+                                    <td>' + serverData[i]["VisitorCnic"] + '</td>\
+                                    <td>' + serverData[i]["VisitorMob"] + '</td>\
+                                </tr>';
+                            }
+                            $("#tableBody").empty();
+                            $("#tableBody").append(markup);
+                            $.unblockUI();
+                        } else {
+                            $.unblockUI();
+                            showMsg("alert-danger", "Failed", "All Visitors have exited");
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                        alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            }
+            displayTable();
+            var fullID;
+            var visID;
+            $("#mainDiv").on("click", "[id^=exitTime_]", function () {
+                var $row = $(this).closest("tr"),       // Finds the closest row <tr>
+                $tds = $row.find("td");             // Finds all children <td> elements
+                var myArr = $tds.map(function () {
+                    return $(this).text();
+                });
+                fullID = "#" + $(this).attr("id");
+                visID = $(this).attr("id").split("_").pop();
+                $.blockUI({
+                    css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    }
+                });
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/Home/markExitTime",
+                    data: { id: visID },
+                    dataType: "json",
+                    success: function (serverData) {
+                        if (serverData) {
+                            $.unblockUI();
+                            $('#confirm-delete').modal('show');
+                            setTimeout(function () { $('#confirm-delete').modal('hide'); }, 3000);
+                            $(fullID).parent().parent().remove();
+                        } else {
+                            $.unblockUI();
+                            showMsg("alert-danger", "Failed", "No Such Visitor Found");
+                        }
+                    },
+                    error: function () {
+                        $.unblockUI();
+                        alert("Critical Error!. Failed to call the server.");
+                    }
+                });
+            });
+
+            $("input,textarea").keyup(function () {
+                if ($(this).parent().hasClass("has-error")) {
+                    $(this).parent().removeClass("has-error");
+                }
+            });
+            $("#mainDiv").on("click", "#refreshTable", function () {
+                nestedFunction();
+            });
+        });
+
+        $('#confirm-delete').on('show.bs.modal', function (e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        });
+        // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+        $(window).on("load resize ", function () {
+            var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+            $('.tbl-header').css({ 'padding-right': scrollWidth });
+        }).resize();
+    </script>
+</body>
+</html>
